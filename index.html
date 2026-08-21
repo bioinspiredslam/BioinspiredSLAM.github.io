@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:site_name" content="Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM" />
+    <meta property="og:title" content="Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM" />
+    <meta property="og:description" content="Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM." />
+    <meta property="og:url" content="https://aypan17.github.io/machiavelli" />
+    <meta property="og:image" content="https://aypan17.github.io/machiavelli/docs/assets/images/machiavelli.svg" />
+
+    <meta property="article:publisher" content="https://aypan17.github.io/machiavelli" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM" />
+    <meta name="twitter:description" content="Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM." />
+    <meta name="twitter:url" content="https://aypan17.github.io.github.io/" />
+    <meta name="twitter:image" content="https://aypan17.github.io/machiavelli/docs/assets/images/machiavelli.svg" />
+    <!-- <meta name="twitter:site" content="" /> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid banner-container" style="max-width: 90%;">
+        <div style="padding: 50px 0 0 0;">
+            <h1 class="text-center"><b>Bioinspired SLAM:</b> A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM</h1>
+            <br>
+            <div class="img-fullwidth">
+                <img src="assets/neoslam_arch.png" alt="Bioinspired SLAM" style="width:80%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
+            </div>
+            <br>
+            <br>
+            <div class="buttons" style="margin-bottom: 8px; text-align: center;">
+                <a class="btn btn-primary" role="button" href="assets/article.pdf" target="_blank">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
+                    </svg>Paper
+                </a>
+                <a class="btn btn-primary" role="button" href="https://github.com/neurosciencerobotics/neoslam" target="_blank">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px" class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                    </svg>Code
+                </a>
+                <!-- <a class="btn btn-primary" role="button" href="https://github.com/FIU-MoRA-Lab/surveyor_datasets/tree/main/iteration_2" target="_blank">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px" class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                    </svg>Dataset
+                </a> -->
+            </div>
+        </div>
+    </div>
+    <div class="outer-container">
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: center">
+                <em><p>This paper presents a new implementation of the NeoSLAM algorithm. The proposed version is a complete rewrite of NeoSLAM into a modular architecture using modern frameworks and introduces additional parameters that increase robustness. This work also provides a comparative evaluation between NeoSLAM and RatSLAM using four datasets under different environmental conditions. Experimental results highlight differences in mapping consistency and trajectory reconstruction, demonstrating the effectiveness and practical applicability of the proposed ROS 2–based version. The results indicate that NeoSLAM achieves performance comparable to RatSLAM, with a slight advantage in the evaluated datasets.</p></em>
+                </div>
+        </div>
+        <br>
+
+        <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1>Key Contributions</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li><b>Architectural Refactoring:</b> The original codebase was fully refactored into a modular and extensible architecture, with a redesigned execution pipeline that improves computational efficiency and prevents data loss during real-time operation.
+                    </li>
+                    <li><b>New Tuning Parameters:</b> Additional parameters were introduced to enhance robustness and flexibility. These include image cropping mechanisms to remove irrelevant or harmful regions from the input (as occurs in RatSLAM) and a control parameter to avoid processing temporally redundant frames.</li>
+                    <li><b>Integration of the modern HTM framework:</b> The legacy NuPIC framework in Python 2.7 was replaced by the modern htm.core \url{https://github.com/htm-community/htm.core} library, implemented in C++17 with Python 3 bindings, ensuring improved performance and maintainability.</li>
+                    <li><b>Migration to ROS 2:</b> The adoption of htm.core enabled the transition to a ROS 2 Rolling-based architecture, leveraging modern middleware capabilities, improved communication mechanisms, and enhanced scalability.</li>
+                    <li><b>Experimental Evaluation:</b> NeoSLAM is systematically evaluated against RatSLAM across four distinct datasets, providing a comprehensive comparative analysis.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row captioned_img">
+            <div class="col-md-12">
+                <br>
+                <div class="img-fullwidth">
+                    <img src="assets/HTM.drawio.png" alt="Bioinspired SLAM" style="width:60%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
+                </div>
+                <div class="caption">Temporal Memory state example.</div> 
+            </div>
+        </div>
+        <hr class="divider" />
+
+        <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1>Experimental Results and Parameters</h1>
+        <div class="row justify-content-around" style="margin-left: -50px; margin-right: -50px;">
+            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
+                <a class="btn btn-primary btn-lg" role="button" href="robotarium.html" style="white-space: normal; min-width: 180px;">
+                    Robotarium Dataset
+                </a>
+            </div>
+            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
+                <a class="btn btn-primary btn-lg" role="button" href="irataus.html" style="white-space: normal; min-width: 180px;">
+                    iRat Australia Dataset
+                </a>
+            </div>
+            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
+                <a class="btn btn-primary btn-lg" role="button" href="FIU_MMC_Lake.html" style="white-space: normal; min-width: 180px;">
+                    FIU MMC Lake Dataset
+                </a>
+            </div>
+            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
+                <a class="btn btn-primary btn-lg" role="button" href="FIU_BBC_Pier.html" style="white-space: normal; min-width: 180px;">
+                    FIU BBC Pier Dataset
+                </a>
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1>Authors</h1>
+        <br>
+        <div class="row authors">
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Anonymous Authors</a></h5>
+            </div>
+        </div>
+        
+
+        <!-- <div class="row authors">
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Fábio Coelho</a></h5>
+                <div class="text-center">Federal University of Rio de Janeiro</div>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">João Victor T. Borges</a></h5>
+                <div class="text-center">Federal University of Rio de Janeiro</div>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Paulo Padrão</a></h5>
+                <div class="text-center">Florida International University</div>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">José Fuentes</a></h5>
+                <div class="text-center">Florida International University</div>
+            </div>
+        </div>
+        <div class="row authors">
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Ramon R. Costa</a></h5>
+                <div class="text-center">Federal University of Rio de Janeiro</div>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Liu Hsu</a></h5>
+                <div class="text-center">Federal University of Rio de Janeiro</div>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="text-center"><a class="text-center" href="#">Leonardo Bobadilha</a></h5>
+                <div class="text-center">Florida International University</div>
+            </div>
+        </div>
+        <hr class="divider" />
+        <br> -->
+
+        <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1>Citation</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <code>
+                    @article{anonymous2026BioinspiredSLAM,<br>
+                    &nbsp; author = {Anonymous},<br>
+                    &nbsp; title = {Bioinspired SLAM: A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM.},<br>
+                    &nbsp; journal = {International Conference on Automation Science and Engineering},<br>
+                    &nbsp; year = {2026},<br>
+                }</code>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
