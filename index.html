@@ -30,37 +30,37 @@
 <body>
     <div class="container-fluid banner-container" style="max-width: 90%;">
         <div style="padding: 50px 0 0 0;">
-            <h1 class="text-center"><b>Bioinspired SLAM:</b> A New Implementation of NeoSLAM and a Comparative Evaluation with RatSLAM</h1>
+            <h1 class="text-center">Towards a Unified Architecture for Mapping, Localization, Path Planning, and Navigation with NeoSLAM</h1>
             <br>
             <div class="img-fullwidth">
-                <img src="assets/neoslam_arch.png" alt="Bioinspired SLAM" style="width:80%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
+                <img src="assets/NeoSLAM_Nav_Mode_Graphical_Abstract .png" alt="Bioinspired SLAM" style="width:80%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
             </div>
             <br>
             <br>
             <div class="buttons" style="margin-bottom: 8px; text-align: center;">
-                <a class="btn btn-primary" role="button" href="assets/article.pdf" target="_blank">
+                <a class="btn btn-primary" role="button" href="" target="_blank">
                     <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
                     </svg>Paper
                 </a>
-                <a class="btn btn-primary" role="button" href="https://github.com/neurosciencerobotics/neoslam" target="_blank">
+                <a class="btn btn-primary" role="button" href="https://github.com/bioinspiredslam/NeoSLAM_NavMode" target="_blank">
                     <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px" class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
                         <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
                     </svg>Code
                 </a>
-                <!-- <a class="btn btn-primary" role="button" href="https://github.com/FIU-MoRA-Lab/surveyor_datasets/tree/main/iteration_2" target="_blank">
+                <a class="btn btn-primary" role="button" href="https://huggingface.co/datasets/BioinspiredSLAM/Robotarium" target="_blank">
                     <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" width="24px" height="24px" class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
                         <path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
                     </svg>Dataset
-                </a> -->
+                </a>
             </div>
         </div>
     </div>
     <div class="outer-container">
     <div class="container main-container">
         <div class="row">
-            <div class="col-md-12" style="text-align: center">
-                <em><p>This paper presents a new implementation of the NeoSLAM algorithm. The proposed version is a complete rewrite of NeoSLAM into a modular architecture using modern frameworks and introduces additional parameters that increase robustness. This work also provides a comparative evaluation between NeoSLAM and RatSLAM using four datasets under different environmental conditions. Experimental results highlight differences in mapping consistency and trajectory reconstruction, demonstrating the effectiveness and practical applicability of the proposed ROS 2–based version. The results indicate that NeoSLAM achieves performance comparable to RatSLAM, with a slight advantage in the evaluated datasets.</p></em>
+            <div class="col-md-12" style="text-align: justify; padding: 0px 30px 0px 30px;">
+                <em><p>Simultaneous Localization and Mapping (SLAM) is critical for autonomous mobile robot operations. While several SLAM approaches provide robust mapping and localization, they typically rely on external navigation stacks to perform path planning and navigation. Brain-inspired SLAM systems, such as NeoSLAM, offer resilience in long-term operation but have so far been limited to mapping and localization. This paper extends NeoSLAM with a unified workflow that integrates mapping, localization, path planning, and support to navigation within a single framework. We introduce a new navigation mode, which enables a robot to localize itself within a consolidated experience map without modifying it, alongside services for exporting and importing the system state. The mathematical formulation of the proposed extensions and their ROS 2 implementation are presented. Experimental validation using the Robotarium dataset demonstrates that the full workflow operates as expected, with the map generated during mapping being successfully reused. Furthermore, the optimal path is iteratively recalculated as the robot moves relative to the target experience.</p></em>
                 </div>
         </div>
         <br>
@@ -70,49 +70,248 @@
         <div class="row">
             <div class="col-md-12">
                 <ul>
-                    <li><b>Architectural Refactoring:</b> The original codebase was fully refactored into a modular and extensible architecture, with a redesigned execution pipeline that improves computational efficiency and prevents data loss during real-time operation.
+                    <li> A <b>persistent NeoSLAM workflow:</b> that connects mapping, state export/import, frozen-map localization, and topological global planning in ROS 2.
                     </li>
-                    <li><b>New Tuning Parameters:</b> Additional parameters were introduced to enhance robustness and flexibility. These include image cropping mechanisms to remove irrelevant or harmful regions from the input (as occurs in RatSLAM) and a control parameter to avoid processing temporally redundant frames.</li>
-                    <li><b>Integration of the modern HTM framework:</b> The legacy NuPIC framework in Python 2.7 was replaced by the modern htm.core \url{https://github.com/htm-community/htm.core} library, implemented in C++17 with Python 3 bindings, ensuring improved performance and maintainability.</li>
-                    <li><b>Migration to ROS 2:</b> The adoption of htm.core enabled the transition to a ROS 2 Rolling-based architecture, leveraging modern middleware capabilities, improved communication mechanisms, and enhanced scalability.</li>
-                    <li><b>Experimental Evaluation:</b> NeoSLAM is systematically evaluated against RatSLAM across four distinct datasets, providing a comprehensive comparative analysis.</li>
+                    <li> A <b>navigation operating mode</b> that continues odometry and visual relocalization while preventing the creation or relaxation of map elements.</li>
+                    <li><b>State serialization services</b> for the experience map, pose-cell network, and spatial-view cells, allowing a coupled NeoSLAM state to be reused after restart.</li>
+                    <li> A revised <b>global path planner</b> that uses Euclidean edge weights and recomputes a shortest route as the current experience changes.</li>
                 </ul>
             </div>
         </div>
         <div class="row captioned_img">
             <div class="col-md-12">
                 <br>
-                <div class="img-fullwidth">
+                <!-- <div class="img-fullwidth">
                     <img src="assets/HTM.drawio.png" alt="Bioinspired SLAM" style="width:60%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
-                </div>
+                </div> -->
                 <div class="caption">Temporal Memory state example.</div> 
             </div>
         </div>
         <hr class="divider" />
 
         <!-- SECTION ---------------------------------------------------------------------- -->
-        <h1>Experimental Results and Parameters</h1>
+        <h1>Results: Robotarium Dataset</h1>
         <div class="row justify-content-around" style="margin-left: -50px; margin-right: -50px;">
-            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
-                <a class="btn btn-primary btn-lg" role="button" href="robotarium.html" style="white-space: normal; min-width: 180px;">
-                    Robotarium Dataset
-                </a>
+            <!-- SECTION ---------------------------------------------------------------------- -->
+        <!-- <div style="margin-left: -300px; margin-right: -300px;">
+            <h1 style="text-align: center;">Experience Maps</h1>
+        </div> -->
+        
+        <div class="row" style="text-align: center; margin-left: -300px; margin-right: -300px;">
+            <div class="col-md-4" style="padding: 0 20px;">
+                <br>
+                <img src="assets/robotarium/Robotarium_Deadreckoning.png" alt="Robotarium" width="100%"/>
+                <h4 style="text-align: center; margin-bottom: 15px;">Dead Reckoning</h4>
+                <div class="caption"></div>
             </div>
-            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
-                <a class="btn btn-primary btn-lg" role="button" href="irataus.html" style="white-space: normal; min-width: 180px;">
-                    iRat Australia Dataset
-                </a>
+            <!-- <div class="col-md-4" style="padding: 0 20px;">
+                <h4 style="text-align: center; margin-bottom: 15px;;">RatSLAM</h4>
+                <br>
+                <img src="assets/robotarium/Final_Exp_map_Rat_robotarium.png" alt="Robotarium" width="100%"/>
+                <div class="caption"></div>
+            </div> -->
+            <div class="col-md-4" style="padding: 0 20px;">
+                <br>
+                <img src="assets/robotarium/Final_Exp_map_Neo_robotarium.png" alt="Robotarium" width="100%"/>
+                <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM estimated Trajectory</h4>
+                <div class="caption"></div>
             </div>
-            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
-                <a class="btn btn-primary btn-lg" role="button" href="FIU_MMC_Lake.html" style="white-space: normal; min-width: 180px;">
-                    FIU MMC Lake Dataset
-                </a>
+        </div>
+        <!-- <div class="row" style="text-align: center; margin-left: -50px; margin-right: -50px;">
+            <div class="col-md-6" style="padding: 0 20px;">
+                <br>
+                <img src="assets/robotarium/em_3_Lake.png" alt="ASV" width="100%"/>
+                <div class="caption"></div>
             </div>
-            <div class="col-md-2 col-lg-2" style="text-align: center; padding: 40px 30px;">
-                <a class="btn btn-primary btn-lg" role="button" href="FIU_BBC_Pier.html" style="white-space: normal; min-width: 180px;">
-                    FIU BBC Pier Dataset
-                </a>
+            <div class="col-md-6" style="padding: 0 20px;">
+                <br>
+                <img src="assets/em_4_Lake.png" alt="ASV" width="100%"/>
+                <div class="caption"></div>
             </div>
+        </div> -->
+
+        <!-- <div style="margin-left: -300px; margin-right: -300px;">
+            <h1 style="text-align: center;">Visual Templates and Experience IDs</h1>
+        </div>
+        <div class="row" style="text-align: center; margin-left: -300px; margin-right: -300px;">
+            <div class="col-md-6" style="padding: 0 20px;">
+                <h4 style="text-align: center; margin-bottom: 15px;">RatSLAM</h4>
+                <br>
+                <img src="assets/robotarium/vt_ex_ids_Rat_robotarium.png" alt="Robotarium" width="100%"/>
+                <div class="caption"></div>
+            </div>
+            <div class="col-md-6" style="padding: 0 20px;">
+                <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM</h4>
+                <br>
+                <img src="assets/robotarium/vt_ex_ids_Neo_robotarium.png" alt="Robotarium" width="100%"/>
+                <div class="caption"></div>
+            </div>
+        </div> -->
+        
+        <h1>Parameter Values</h1>
+        <div class="row" style="margin-left: -300px; margin-right: -300px;">
+            <!-- RatSLAM Local View -->
+            <div class="col-md-3">
+                <h4 style="text-align: center; margin-bottom: 15px;">RatSLAM</h4>
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                    <caption style="caption-side: top; text-align: center;"><b>Local View Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>image_crop_x_min</code></td><td>default</td></tr>
+                        <tr><td><code>image_crop_x_max</code></td><td>default</td></tr>
+                        <tr><td><code>image_crop_y_max</code></td><td>150</td></tr>
+                        <tr><td><code>image_crop_y_min</code></td><td>default</td></tr>
+                        <tr><td><code>template_x_size</code></td><td>60</td></tr>
+                        <tr><td><code>template_y_size</code></td><td>20</td></tr>
+                        <tr><td><code>vt_shift_match</code></td><td>4</td></tr>
+                        <tr><td><code>vt_step_match</code></td><td>1</td></tr>
+                        <tr><td><code>vt_match_threshold</code></td><td>0.03</td></tr>
+                        <tr><td><code>vt_normalisation</code></td><td>default</td></tr>
+                        <tr><td><code>vt_patch_normalise</code></td><td>default</td></tr>
+                        <tr><td><code>vt_panoramic</code></td><td>default</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- RatSLAM Pose Cell + Experience Map -->
+            <div class="col-md-3">
+                <h4 style="text-align: center; margin-bottom: 15px; visibility: hidden;">RatSLAM</h4>
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                    <caption style="caption-side: top; text-align: center;"><b>Pose Cell Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>pc_dim_xy</code></td><td>30</td></tr>
+                        <tr><td><code>pc_dim_th</code></td><td>36</td></tr>
+                        <tr><td><code>pc_global_inhib</code></td><td>0.00002</td></tr>
+                        <tr><td><code>pc_cell_x_size</code></td><td>0.1</td></tr>
+                        <tr><td><code>pc_vt_inject_energy</code></td><td>0.15</td></tr>
+                        <tr><td><code>exp_delta_pc_threshold</code></td><td>2.0</td></tr>
+                        <tr><td><code>vt_active_decay</code></td><td>1.0</td></tr>
+                        <tr><td><code>pc_vt_restore</code></td><td>0.05</td></tr>
+                    </tbody>
+                </table>
+                
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                    <caption style="caption-side: top; text-align: center;"><b>Experience Map Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>exp_loops</code></td><td>1</td></tr>
+                        <tr><td><code>exp_initial_em_deg</code></td><td>90.0</td></tr>
+                        <tr><td><code>exp_correction</code></td><td>0.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- NeoSLAM Visual Feature + Neocortex -->
+            <div class="col-md-3">
+                <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM</h4>
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                    <caption style="caption-side: top; text-align: center;"><b>Visual Feature Extractor</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>use_compressed</code></td><td>false</td></tr>
+                    </tbody>
+                </table>
+                
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                    <caption style="caption-side: top; text-align: center;"><b>Neocortex Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>tm_column_dimensions</code></td><td>2048</td></tr>
+                        <tr><td><code>tm_cells_per_column</code></td><td>32</td></tr>
+                        <tr><td><code>tm_activation_threshold</code></td><td>4</td></tr>
+                        <tr><td><code>tm_initial_permanence</code></td><td>0.55</td></tr>
+                        <tr><td><code>tm_connected_permanence</code></td><td>0.5</td></tr>
+                        <tr><td><code>tm_min_threshold</code></td><td>1</td></tr>
+                        <tr><td><code>tm_max_new_synapse_count</code></td><td>20</td></tr>
+                        <tr><td><code>tm_permanence_increment</code></td><td>0.01</td></tr>
+                        <tr><td><code>tm_permanence_decrement</code></td><td>0.01</td></tr>
+                        <tr><td><code>tm_predicted_segment_decrement</code></td><td>0.0005</td></tr>
+                        <tr><td><code>tm_max_segments_per_cell</code></td><td>100</td></tr>
+                        <tr><td><code>tm_max_synapses_per_segment</code></td><td>100</td></tr>
+                        <tr><td><code>tm_seed</code></td><td>42</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- NeoSLAM Spatial-View + Pose Cell + Experience Map -->
+            <div class="col-md-3">
+                <h5 style="text-align: center; margin-bottom: 15px; visibility: hidden;">NeoSLAM</h5>
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                    <caption style="caption-side: top; text-align: center;"><b>Spatial-View Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>theta_alpha</code></td><td>384</td></tr>
+                        <tr><td><code>theta_rho</code></td><td>6</td></tr>
+                        <tr><td><code>score_interval</code></td><td>485</td></tr>
+                    </tbody>
+                </table>
+                
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                    <caption style="caption-side: top; text-align: center;"><b>Pose Cell Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>pc_dim_xy</code></td><td>30</td></tr>
+                        <tr><td><code>pc_dim_th</code></td><td>36</td></tr>
+                        <tr><td><code>pc_cell_x_size</code></td><td>1</td></tr>
+                        <tr><td><code>pc_vt_inject_energy</code></td><td>0.15</td></tr>
+                        <tr><td><code>exp_delta_pc_threshold</code></td><td>2.0</td></tr>
+                        <tr><td><code>vt_active_decay</code></td><td>1.0</td></tr>
+                        <tr><td><code>pc_vt_restore</code></td><td>0.05</td></tr>
+                    </tbody>
+                </table>
+                
+                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                    <caption style="caption-side: top; text-align: center;"><b>Experience Map Module</b></caption>
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>exp_loops</code></td><td>1</td></tr>
+                        <tr><td><code>exp_initial_em_deg</code></td><td>90</td></tr>
+                        <tr><td><code>exp_correction</code></td><td>0.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         </div>
 
         <hr class="divider" />
