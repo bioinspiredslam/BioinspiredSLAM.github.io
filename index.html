@@ -60,8 +60,14 @@
     <div class="container main-container">
         <div class="row">
             <div class="col-md-12" style="text-align: justify; padding: 0px 30px 0px 30px;">
-                <em><p>Simultaneous Localization and Mapping (SLAM) is critical for autonomous mobile robot operations. While several SLAM approaches provide robust mapping and localization, they typically rely on external navigation stacks to perform path planning and navigation. Brain-inspired SLAM systems, such as NeoSLAM, offer resilience in long-term operation but have so far been limited to mapping and localization. This paper extends NeoSLAM with a unified workflow that integrates mapping, localization, path planning, and support to navigation within a single framework. We introduce a new navigation mode, which enables a robot to localize itself within a consolidated experience map without modifying it, alongside services for exporting and importing the system state. The mathematical formulation of the proposed extensions and their ROS 2 implementation are presented. Experimental validation using the Robotarium dataset demonstrates that the full workflow operates as expected, with the map generated during mapping being successfully reused. Furthermore, the optimal path is iteratively recalculated as the robot moves relative to the target experience.</p></em>
-                </div>
+                <em><p>Simultaneous Localization and Mapping (SLAM) is critical for autonomous mobile robot operations. While several SLAM approaches provide robust mapping and localization, 
+                    they typically rely on external navigation stacks to perform path planning and navigation. Brain-inspired SLAM systems, such as NeoSLAM, offer resilience in long-term operation 
+                    but have so far been limited to mapping and localization. This paper extends NeoSLAM with a unified workflow that integrates mapping, localization, path planning, and support to
+                     navigation within a single framework. We introduce a new navigation mode, which enables a robot to localize itself within a consolidated experience map without modifying it, alongside
+                      services for exporting and importing the system state. The mathematical formulation of the proposed extensions and their ROS 2 implementation are presented. Experimental validation 
+                      using the Robotarium dataset demonstrates that the full workflow operates as expected, with the map generated during mapping being successfully reused. Furthermore, the optimal path
+                       is iteratively recalculated as the robot moves relative to the target experience.</p></em>
+            </div>
         </div>
         <br>
 
@@ -78,55 +84,98 @@
                 </ul>
             </div>
         </div>
-        <div class="row captioned_img">
-            <div class="col-md-12">
-                <br>
-                <!-- <div class="img-fullwidth">
-                    <img src="assets/HTM.drawio.png" alt="Bioinspired SLAM" style="width:60%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
+
+        <hr class="divider" />
+
+         <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1 class="text-left">The new NeoSLAM Workflow</h1>
+        <div class="row justify-content-around" style="margin-left: -200px; margin-right: -200px;">
+                    <!-- <p><strong style="font-weight: 700;">NeoSLAM workflow:</strong></p> -->
+                    <ol>
+                        <li><strong>Mapping Mode:</strong> As the robot explores a new environment, the system adds new experiences. When the robot passes through a previously visited location, a loop closure occurs, and the entire map is updated to correct odometric drift.</li>
+                        <li>Once mapping is complete, the user can export both the map and the complete system state.</li>
+                        <li>The data are stored as human-readable JSON files.</li>
+                        <li><strong>Navigation Mode:</strong> After the environment has been mapped, the user can launch a new application, switch to navigation mode, and import the saved files.</li>
+                        <li>In the localization task, the robot localizes itself within the experience map but no longer modifies it.</li>
+                        <li>The operator can specify a goal location.</li>
+                        <li>The Path Planner algorithm computes the optimal route to that goal within the experience map.</li>
+                    </ol>
+                <!-- </div> -->
+                <!-- <div class="row justify-content-around" style="text-align: justify; padding: 0px 30px 0px 30px;">
+                    <p>The figure below shows the new node named <em>mode_manager_node (1)</em>  created to
+                hold the operating mode and a singleton class named <em>ModeGlobals (2), </em> 
+                which was introduced to store the global <em>mode</em> variable and share its state 
+                across related nodes. The <em>mode_manager_node </em> initially sets the mode 
+                to "mapping" and can change it by a service call. The nodes affected by this mechanism (3)
+                — namely <em>PoseCellsNode</em>, <em>ExperienceMapNode</em>, and <em>SpatialViewCellsNode</em> 
+                — subscribe to the <em>system_mode</em> topic to monitor the current mode and implement 
+                the corresponding changes.</p>
+                </div>
+                
+                <div class="img-fullwidth">
+                    <h4 style="text-align: center; margin-bottom: 15px;">Node Manager</h4>
+                    <img src="assets/Mode_manager.png" alt="Bioinspired SLAM" style="width:25%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
                 </div> -->
-                <div class="caption">Temporal Memory state example.</div> 
-            </div>
+
+                <div class="row justify-content-around" style="text-align: justify; padding: 0px 30px 0px 30px;">
+                    <p>Figure ROS2 Computational Graph shows the modifications (in orange) in the system architecture. The new node <em>/mode_manager_node (1)</em> 
+                        publishes the system mode via the <em>/system_mode</em> topic. A new service <em>/change_mode (2) </em> is also 
+                        introduced to allow changing the system mode. Furthermore, a <em>set of services  (3)</em> were introduced to provide exporting and importing states 
+                        of Pose Cells, Spatial View Cells and Experience Map. Finally, the new service <em>/set_goal (4)</em> was introduced to allow setting the robot's 
+                        goal position to the path planning algorithm.</p>
+                </div>
+
+                <div class="img-fullwidth">
+                    <h4 style="text-align: center; margin-bottom: 15px;">ROS2 Computational Graph</h4>
+                    <img src="assets/NeoSLAM_Navigation_Mode_graph_V2.png" alt="Bioinspired SLAM" style="width:85%; display:block; margin-left:auto; margin-right:auto; padding:0;"/>
+                </div>
         </div>
+        
+        <br>
+        
+
         <hr class="divider" />
 
         <!-- SECTION ---------------------------------------------------------------------- -->
         <h1 class="text-left">Robotarium Dataset</h1>
-        <div class="row justify-content-around" style="margin-left: -50px; margin-right: -50px;">
+        <div class="row justify-content-around" style="margin-left: -200px; margin-right: -200px;">
             <!-- SECTION ---------------------------------------------------------------------- -->
-       
-        <div class="row" style="text-align: center; margin-left: -300px; margin-right: -300px;">
-            <div class="col-md-4" style="padding: 0 20px;">
-                <h4 style="text-align: center; margin-bottom: 15px;;">Husky Robot</h4>
-                <br>
-                <img src="assets/robotarium/Husky.png" alt="Robotarium" width="70%"/>
-                <div class="caption"></div>
-            </div>
-            <div class="col-md-4" style="padding: 0 20px;">
-                <h4 style="text-align: center; margin-bottom: 15px;">Image Samples</h4>
-                <br>
-                <img src="assets/robotarium/Robotarium1.png" alt="Robotarium" width="65%%"/>
-                <img src="assets/robotarium/Robotarium2.png" alt="Robotarium" width="65%%"/>
-                <div class="caption"></div>
-            </div>
-            <div class="col-md-4" style="padding: 0 20px;">
-                <h4 style="text-align: center; margin-bottom: 15px;">Dead Reckoning</h4>
-                <br>
-                <img src="assets/robotarium/Robotarium_Deadreckoning.png" alt="Robotarium" width="100%"/>
-                <div class="caption"></div>
-            </div>
-            <div class="row">
-            <div class="col-md-12" style="text-align: justify; padding: 0px 30px 0px 30px;">
-                <em><p>  (a) Husky A200 Robot belonging to Heriot-Watt University and (b) Robotarium frames examples from the frontal camera (PIZZINO (2024)).
-                (c) Raw odometry (Dead Reckoning) from Husky at Robotarium experimental site.</p></em>
+            <div class="row" style="text-align: center; margin-left: -200px; margin-right: -200px;">
+                <div class="col-md-4" style="padding: 0 20px;">
+                    <h4 style="text-align: center; margin-bottom: 15px;;">Husky Robot</h4>
+                    <br>
+                    <img src="assets/robotarium/Husky.png" alt="Robotarium" width="70%"/>
+                    <div class="caption"></div>
+                </div>
+                <div class="col-md-4" style="padding: 0 20px;">
+                    <h4 style="text-align: center; margin-bottom: 15px;">Image Samples</h4>
+                    <br>
+                    <img src="assets/robotarium/Robotarium1.png" alt="Robotarium" width="65%%"/>
+                    <img src="assets/robotarium/Robotarium2.png" alt="Robotarium" width="65%%"/>
+                    <div class="caption"></div>
+                </div>
+                <div class="col-md-4" style="padding: 0 20px;">
+                    <h4 style="text-align: center; margin-bottom: 15px;">Dead Reckoning</h4>
+                    <br>
+                    <img src="assets/robotarium/Robotarium_Deadreckoning.png" alt="Robotarium" width="100%"/>
+                    <div class="caption"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="text-align: justify; padding: 0px 30px 0px 30px;">
+                        <em><p>  (a) Husky A200 Robot belonging to Heriot-Watt University and (b) Robotarium frames examples from the frontal camera (PIZZINO (2024)).
+                        (c) Raw odometry (Dead Reckoning) from Husky at Robotarium experimental site.</p></em>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <hr class="divider" />
 
-<!-- SECTION ---------------------------------------------------------------------- -->
-        <h1 class="text-center">Parameter Values and Results</h1>
-            <div class="row" style="text-align: center; margin-left: -300px; margin-right: -300px;">
+        <!-- SECTION ---------------------------------------------------------------------- -->
+        <h1 class="text-left">Parameter Values and Results</h1>
+        <div class="row justify-content-around" style="margin-left: -300px; margin-right: -300px;">
                 <div class="col-md-4" style="padding: 0 20px;">
-                    <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM estimated Trajectory</h4>
+                    <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM final estimated Trajectory</h4>
                     <br>
                     <img src="assets/robotarium/Final_Exp_map_Neo_robotarium.png" alt="Robotarium" width="100%"/>
                     <div class="caption"></div>
@@ -136,23 +185,9 @@
                     <h4 style="text-align: center; margin-bottom: 15px;">NeoSLAM Parameter Values</h4>
 
                     <div class="row">
-                    <div class="col-md-6" style="padding: 0 20px;">
-                        <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
-                        <caption style="caption-side: top; text-align: center;"><b>Spatial-View Module</b></caption>
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Parameter</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><code>theta_alpha</code></td><td>384</td></tr>
-                            <tr><td><code>theta_rho</code></td><td>6</td></tr>
-                            <tr><td><code>score_interval</code></td><td>485</td></tr>
-                        </tbody>
-                        </table>
+                        <div class="col-md-6" style="padding: 0 20px;">
                             <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
-                            <caption style="caption-side: top; text-align: center;"><b>Pose Cell Module</b></caption>
+                            <caption style="caption-side: top; text-align: center;"><b>Spatial-View Module</b></caption>
                             <thead class="thead-light">
                                 <tr>
                                     <th>Parameter</th>
@@ -160,70 +195,84 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>pc_dim_xy</code></td><td>30</td></tr>
-                                <tr><td><code>pc_dim_th</code></td><td>36</td></tr>
-                                <tr><td><code>pc_global_inhib</code></td><td>0.00002</td></tr>
-                                <tr><td><code>pc_cell_x_size</code></td><td>0.1</td></tr>
-                                <tr><td><code>pc_vt_inject_energy</code></td><td>0.15</td></tr>
-                                <tr><td><code>exp_delta_pc_threshold</code></td><td>2.0</td></tr>
-                                <tr><td><code>vt_active_decay</code></td><td>1.0</td></tr>
-                                <tr><td><code>pc_vt_restore</code></td><td>0.05</td></tr>
+                                <tr><td><code>theta_alpha</code></td><td>384</td></tr>
+                                <tr><td><code>theta_rho</code></td><td>6</td></tr>
+                                <tr><td><code>score_interval</code></td><td>485</td></tr>
                             </tbody>
-                        </table>
+                            </table>
+                                <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                                <caption style="caption-side: top; text-align: center;"><b>Pose Cell Module</b></caption>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>pc_dim_xy</code></td><td>30</td></tr>
+                                    <tr><td><code>pc_dim_th</code></td><td>36</td></tr>
+                                    <tr><td><code>pc_global_inhib</code></td><td>0.00002</td></tr>
+                                    <tr><td><code>pc_cell_x_size</code></td><td>0.1</td></tr>
+                                    <tr><td><code>pc_vt_inject_energy</code></td><td>0.15</td></tr>
+                                    <tr><td><code>exp_delta_pc_threshold</code></td><td>2.0</td></tr>
+                                    <tr><td><code>vt_active_decay</code></td><td>1.0</td></tr>
+                                    <tr><td><code>pc_vt_restore</code></td><td>0.05</td></tr>
+                                </tbody>
+                            </table>
 
-                        <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
-                            <caption style="caption-side: top; text-align: center;"><b>Experience Map Module</b></caption>
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code>exp_loops</code></td><td>1</td></tr>
-                                <tr><td><code>exp_initial_em_deg</code></td><td>90.0</td></tr>
-                                <tr><td><code>exp_correction</code></td><td>0.5</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-6" style="padding: 0 20px;">
-                        <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
-                            <caption style="caption-side: top; text-align: center;"><b>Visual Feature Extractor</b></caption>
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code>use_compressed</code></td><td>false</td></tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
-                            <caption style="caption-side: top; text-align: center;"><b>Neocortex Module</b></caption>
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code>tm_column_dimensions</code></td><td>2048</td></tr>
-                                <tr><td><code>tm_cells_per_column</code></td><td>32</td></tr>
-                                <tr><td><code>tm_activation_threshold</code></td><td>4</td></tr>
-                                <tr><td><code>tm_initial_permanence</code></td><td>0.55</td></tr>
-                                <tr><td><code>tm_connected_permanence</code></td><td>0.5</td></tr>
-                                <tr><td><code>tm_min_threshold</code></td><td>1</td></tr>
-                                <tr><td><code>tm_max_new_synapse_count</code></td><td>20</td></tr>
-                                <tr><td><code>tm_permanence_increment</code></td><td>0.01</td></tr>
-                                <tr><td><code>tm_permanence_decrement</code></td><td>0.01</td></tr>
-                                <tr><td><code>tm_predicted_segment_decrement</code></td><td>0.0005</td></tr>
-                                <tr><td><code>tm_max_segments_per_cell</code></td><td>100</td></tr>
-                                <tr><td><code>tm_max_synapses_per_segment</code></td><td>100</td></tr>
-                                <tr><td><code>tm_seed</code></td><td>42</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                                <caption style="caption-side: top; text-align: center;"><b>Experience Map Module</b></caption>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>exp_loops</code></td><td>1</td></tr>
+                                    <tr><td><code>exp_initial_em_deg</code></td><td>90.0</td></tr>
+                                    <tr><td><code>exp_correction</code></td><td>0.5</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6" style="padding: 0 20px;">
+                            <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em;">
+                                <caption style="caption-side: top; text-align: center;"><b>Visual Feature Extractor</b></caption>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>use_compressed</code></td><td>false</td></tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered table-striped table-sm" style="font-size: 0.8em; margin-top: 15px;">
+                                <caption style="caption-side: top; text-align: center;"><b>Neocortex Module</b></caption>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>tm_column_dimensions</code></td><td>2048</td></tr>
+                                    <tr><td><code>tm_cells_per_column</code></td><td>32</td></tr>
+                                    <tr><td><code>tm_activation_threshold</code></td><td>4</td></tr>
+                                    <tr><td><code>tm_initial_permanence</code></td><td>0.55</td></tr>
+                                    <tr><td><code>tm_connected_permanence</code></td><td>0.5</td></tr>
+                                    <tr><td><code>tm_min_threshold</code></td><td>1</td></tr>
+                                    <tr><td><code>tm_max_new_synapse_count</code></td><td>20</td></tr>
+                                    <tr><td><code>tm_permanence_increment</code></td><td>0.01</td></tr>
+                                    <tr><td><code>tm_permanence_decrement</code></td><td>0.01</td></tr>
+                                    <tr><td><code>tm_predicted_segment_decrement</code></td><td>0.0005</td></tr>
+                                    <tr><td><code>tm_max_segments_per_cell</code></td><td>100</td></tr>
+                                    <tr><td><code>tm_max_synapses_per_segment</code></td><td>100</td></tr>
+                                    <tr><td><code>tm_seed</code></td><td>42</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -231,12 +280,6 @@
             </div>
             <!-- <h4 style="text-align: center; margin-bottom: 15px; visibility: hidden;">RatSLAM</h4> -->
                 
-
-        <div class="row" style="margin-left: -300px; margin-right: -300px;">
-                   
-        </div>
-        </div>
-
         <hr class="divider" />
 
         <!-- SECTION ---------------------------------------------------------------------- -->
